@@ -1,0 +1,12 @@
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('show'));
+document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('show')));
+const searchModal=document.getElementById('searchModal');
+document.getElementById('searchBtn').addEventListener('click',()=>searchModal.classList.add('show'));
+document.getElementById('closeSearch').addEventListener('click',()=>searchModal.classList.remove('show'));
+searchModal.addEventListener('click',event=>{if(event.target===searchModal)searchModal.classList.remove('show')});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')searchModal.classList.remove('show')});
+document.getElementById('newsletterForm').addEventListener('submit',function(event){event.preventDefault();document.getElementById('formMessage').textContent='धन्यवाद! आपका सब्सक्रिप्शन सफल रहा।';this.reset()});
+const today=new Date();
+document.getElementById('currentDate').textContent=today.toLocaleDateString('hi-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
